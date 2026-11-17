@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pmjriosucio.netlify.app/sitemap.xml
