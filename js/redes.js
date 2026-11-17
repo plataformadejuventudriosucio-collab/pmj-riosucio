@@ -70,6 +70,11 @@
     var limpio = function (l) { return l.replace(/#[\p{L}\p{N}_]+/gu, '').replace(/\s{2,}/g, ' ').trim(); };
     var i = 0; while (i < lines.length && !limpio(lines[i])) i++;
     var titulo = limpio(lines[i] || '').replace(/^[^\p{L}\p{N}¡¿"“«]+/u, '').trim();
+    var letras = titulo.replace(/[^\p{L}]/gu, '');
+    if (letras.length > 8 && letras === letras.toUpperCase()) {
+      titulo = titulo.toLowerCase().replace(/(^|[¡¿"“«]\s*)(\p{L})/u, function (m, a, b) { return a + b.toUpperCase(); })
+        .replace(/\b(riosucio|chocó|choco|tdea|pmj|ajpmjr|médicos del mundo|villa rufina|bajo atrato|colombia|quibdó|bogotá)\b/giu, function (w) { return w.toUpperCase() === 'TDEA' || w.toUpperCase() === 'PMJ' || w.toUpperCase() === 'AJPMJR' ? w.toUpperCase() : w.replace(/(^|\s)(\p{L})/gu, function (m, a, b) { return a + b.toUpperCase(); }); });
+    }
     if (titulo.length > 120) { titulo = titulo.slice(0, 117).replace(/\s+\S*$/, '') + '…'; }
     var cuerpo = [], buf = [];
     lines.slice(i + 1).forEach(function (l) {
