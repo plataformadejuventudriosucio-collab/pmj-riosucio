@@ -8,8 +8,8 @@ El archivo acumula el historial: las publicaciones viejas no se borran.
 
 Variables de entorno (se configuran como "secretos" en GitHub):
   FB_PAGE_TOKEN  -> token de acceso de la Página (obligatorio)
-  FB_PAGE_ID     -> ID de la Página (por defecto 100081625983376)
-  GRAPH_VERSION  -> versión de la Graph API (por defecto v23.0)
+  FB_PAGE_ID     -> ID de la Página (por defecto 536756083334696)
+  GRAPH_VERSION  -> versión de la Graph API (por defecto v27.0)
   FB_DESDE       -> en la primera carga, traer publicaciones desde esta fecha (por defecto 2026-01-01)
 """
 import json, os, re, sys, time, urllib.parse, urllib.request, urllib.error
@@ -18,8 +18,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "facebook.json")
 IMGDIR = os.path.join(ROOT, "img", "fb-auto")
 TOKEN = os.environ.get("FB_PAGE_TOKEN", "").strip()
-PAGE = os.environ.get("FB_PAGE_ID", "100081625983376").strip()
-VER = os.environ.get("GRAPH_VERSION", "v23.0").strip()
+PAGE = os.environ.get("FB_PAGE_ID", "536756083334696").strip()
+VER = os.environ.get("GRAPH_VERSION", "v27.0").strip()
 BASE = os.environ.get("GRAPH_BASE", "https://graph.facebook.com").rstrip("/")
 DESDE = os.environ.get("FB_DESDE", "2026-01-01").strip()
 MAX_FOTOS = 10

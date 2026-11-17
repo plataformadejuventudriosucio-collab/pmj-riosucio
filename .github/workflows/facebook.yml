@@ -23,8 +23,8 @@ jobs:
       - name: Traer publicaciones de la Página
         env:
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
-          FB_PAGE_ID: ${{ vars.FB_PAGE_ID || '100081625983376' }}
-          GRAPH_VERSION: ${{ vars.GRAPH_VERSION || 'v23.0' }}
+          FB_PAGE_ID: ${{ vars.FB_PAGE_ID || '536756083334696' }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION || 'v27.0' }}
         run: python scripts/facebook_sync.py
       - name: Guardar cambios (Netlify publica solo)
         run: |
